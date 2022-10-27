@@ -1,5 +1,6 @@
 import Express from 'express';
 import dotenv from 'dotenv';
+import db from './database/database';
 
 dotenv.config();
 
@@ -30,6 +31,21 @@ app.get('/api', (_req, res) => {
     ...apiStatus,
   });
 });
+
+app.get('/ping', async (_req, res) => {
+
+  try {
+    await db.query('SELECT 1');
+  
+    res.status(201).send('pong')
+  } catch  {
+    res.status(500).send('Error to ping db')
+  }
+  
+
+
+
+})
 
 app.get('*', (req, res) => {
   res.status(404).send('Not found');
