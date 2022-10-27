@@ -3,10 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "commonjs",
   "scripts": {
     "build": "npx tsc",
     "start": "node dist/index.js",
-    "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/index.js\"",
+    "dev": "ts-node-dev src/index.ts",
     "lint": "eslint . --ext .ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -25,6 +26,6 @@
     "@typescript-eslint/parser": "5.41.0",
     "concurrently": "7.5.0",
     "eslint": "8.26.0",
-    "nodemon": "2.0.20"
+    "ts-node-dev": "^2.0.0"
   }
 }
