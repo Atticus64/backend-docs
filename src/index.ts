@@ -1,40 +1,20 @@
-import Express from 'express';
-import dotenv from 'dotenv';
+import app from './app';
+import db from './config/database';
 
-dotenv.config();
-
-const app = Express();
+import './models/User.models';
+import './models/Comment.models';
 
 const port = process.env.PORT ?? 8000;
-
-interface ApiObject {
-  ok: boolean;
-  msg: string;
+async function connect() {
+  try {
+    await db.authenticate();
+    await db.sync({ force: true });
+    app.listen(port);
+    console.log('EL SERVIDOR A REVIVIDO ');
+  } catch (error) {
+    console.log('EL SERVIDOR CAYO, "MENOS UNA VIDA" 💔💔');
+    console.log(error);
+  }
 }
 
-app.get('/', (_req, res) => {
-  res.send('Hola Backend en Typescript');
-});
-
-app.get('/api', (_req, res) => {
-  const apiStatus: ApiObject = {
-    ok: true,
-    msg: 'Todo esta bien, no se ha caído el backend',
-  };
-
-  if (apiStatus.ok === true) {
-    console.log();
-  }
-
-  res.status(200).json({
-    ...apiStatus,
-  });
-});
-
-app.get('*', (req, res) => {
-  res.status(404).send('Not found');
-});
-
-app.listen(port, () => {
-  console.log(`⚡️[server]: running in http://localhost:${port}`);
-});
+connect();
