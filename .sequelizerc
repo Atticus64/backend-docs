@@ -1,0 +1,17 @@
+import path from 'path';
+
+/**
+ *@rutes
+ * indicamos a sequelize las rutas en donde van a
+ * estar los archivos que va a generar automáticamente
+ *
+ */
+
+const rute = {
+  config: path.resolve('src', 'database'),
+  'models-path': path.resolve('src', 'database'),
+  'seeder-path': path.resolve('src', 'database'),
+  'migrations-path': path.resolve('src', 'database'),
+};
+
+export default rute;
