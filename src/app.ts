@@ -18,7 +18,7 @@ app.get('/api', (_req, res) => {
   };
 
   if (apiStatus.ok === true) {
-    console.log();
+    console.log('all is ok');
   }
 
   res.status(200).json({
