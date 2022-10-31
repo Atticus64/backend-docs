@@ -5,7 +5,7 @@ const CommentModels = db.define(
   'comment',
   {
     id: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.INTEGER,
       autoIncrement: true,
       primaryKey: true,
     },
