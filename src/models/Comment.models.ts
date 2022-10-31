@@ -9,6 +9,14 @@ const CommentModels = db.define(
       autoIncrement: true,
       primaryKey: true,
     },
+    comment: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    createOn: {
+      type: DataTypes.DATE,
+      allowNull: false,
+    },
   },
   { tableName: 'comment' }
 );
