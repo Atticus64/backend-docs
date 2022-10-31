@@ -2,14 +2,14 @@
   "name": "backend-docs",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
-  "type": "module",
+  "main": "index.js", 
+  "type": "commonjs",
   "scripts": {
     "build": "npx tsc",
     "start": "node dist/index.js",
-    "dev": "nodemon -I --exec node --experimental-specifier-resolution=node  --loader ts-node/esm ./src/index.ts",
+    "dev": "ts-node-dev ./src/index.ts",
     "lint": "eslint . --ext .ts",
-    "test": "node tests/*"
+    "test": "jest"
   },
   "keywords": [],
   "author": "",
@@ -27,9 +27,9 @@
     "@types/node": "18.11.6",
     "@typescript-eslint/eslint-plugin": "5.41.0",
     "@typescript-eslint/parser": "5.41.0",
-    "concurrently": "7.5.0",
     "eslint": "8.26.0",
-    "nodemon": "2.0.20",
+    "jest": "29.2.2",
+    "ts-jest": "29.0.3",
     "ts-node-dev": "^2.0.0"
   }
 }
