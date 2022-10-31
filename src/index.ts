@@ -11,6 +11,7 @@ async function connect() {
     await db.sync({ force: true });
     app.listen(port);
     console.log('EL SERVIDOR A REVIVIDO ');
+    console.log(`Servidor corriendo en ⚡️ http://localhost:${port}`);
   } catch (error) {
     console.log('EL SERVIDOR CAYO, "MENOS UNA VIDA" 💔💔');
     console.log(error);
