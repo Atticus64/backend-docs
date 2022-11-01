@@ -1,8 +1,7 @@
-import * as dotenv from 'dotenv';
+import { config } from 'dotenv';
 import { Sequelize } from 'sequelize';
 
-dotenv.config();
-
+config();
 const db = new Sequelize(
   process.env.DB_NAME || 'docs',
   process.env.DB_USER || 'postgres',
