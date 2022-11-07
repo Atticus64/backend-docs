@@ -16,10 +16,21 @@ describe('sum module', () => {
 
 describe('test endpoind api',() => {
 
-  test('/api', async () => {
+  test('El api debe de regresar 2 items', async () => {
     const resp = await request(app).get('/api').expect(200).expect('Content-Type',  /application\/json/)
-    const data = resp.body
+    const data = Object.entries(resp.body)
   
-    expect(data).toEqual({ ok: true, msg: 'Todo esta bien, no se ha caído el backend' })
+    expect(data.length).toEqual(2)
   })
+})
+
+
+describe('test not found endpoint', () => {
+  test('Debe de tener un status 404 el endpoint', async () => {
+
+    const resp = await request(app).get('/no_exist').expect(404)
+
+  })
+
+
 })
